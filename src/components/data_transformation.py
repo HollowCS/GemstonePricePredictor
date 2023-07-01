@@ -96,12 +96,12 @@ class DataTransformation:
             # transforming using preprocessing object
 
             input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train_data)
-            input_data_test_arr = preprocessing_obj.transform(input_feature_test_data)
+            input_feature_test_arr = preprocessing_obj.transform(input_feature_test_data)
 
             logging.info("Applying preprocessing on training and testing datasets")
 
             train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_data)]
-            test_arr = np.c_[input_feature_test_data, np.array(target_feature_test_data)]
+            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_data)]
 
             save_object(
                 file_path=self.data_transformation_config.preprocessor_obj_path,
